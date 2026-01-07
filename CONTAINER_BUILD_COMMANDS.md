@@ -50,13 +50,13 @@ Docker buildx doesn't support `--load` with multiarch manifest lists, so build e
 #### Build for amd64
 
 ```bash
-docker buildx build --load --platform linux/amd64 -t traefik:3.6.6-amd64 -f Dockerfile .
+docker buildx build --load --platform linux/amd64 -t traefik:v3.6.6-amd64 -f Dockerfile .
 ```
 
 #### Build for arm64
 
 ```bash
-docker buildx build --load --platform linux/arm64 -t traefik:3.6.6-arm64 -f Dockerfile .
+docker buildx build --load --platform linux/arm64 -t traefik:v3.6.6-arm64 -f Dockerfile .
 ```
 
 ### 5. Verify Built Images
@@ -66,8 +66,8 @@ docker images traefik
 ```
 
 Expected output should include:
-- `traefik:3.6.6-amd64`
-- `traefik:3.6.6-arm64`
+- `traefik:v3.6.6-amd64`
+- `traefik:v3.6.6-arm64`
 
 ### 6. Run Aikido Security Scans
 
@@ -76,13 +76,13 @@ Source environment variables and run scans on both images:
 #### Scan amd64 image
 
 ```bash
-source ~/.zshrc && aikido-local-scanner image-scan traefik:3.6.6-amd64 --apikey $AIKIDO_APIKEY
+source ~/.zshrc && aikido-local-scanner image-scan traefik:v3.6.6-amd64 --apikey $AIKIDO_APIKEY
 ```
 
 #### Scan arm64 image
 
 ```bash
-source ~/.zshrc && aikido-local-scanner image-scan traefik:3.6.6-arm64 --apikey $AIKIDO_APIKEY
+source ~/.zshrc && aikido-local-scanner image-scan traefik:v3.6.6-arm64 --apikey $AIKIDO_APIKEY
 ```
 
 ### 7. Push to AWS ECR
@@ -97,7 +97,7 @@ Build and push multiarch image directly to ECR:
 
 ```bash
 docker buildx build --push --platform linux/amd64,linux/arm64 \
-  -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/traefik:3.6.6 \
+  -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/traefik:v3.6.6 \
   -f Dockerfile .
 ```
 
