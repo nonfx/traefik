@@ -1,12 +1,12 @@
 module github.com/traefik/traefik/v3
 
-go 1.24.0
+go 1.25.5
 
 require (
 	github.com/BurntSushi/toml v1.6.0
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/abbot/go-http-auth v0.0.0-00010101000000-000000000000 // No tag on the repo.
-	github.com/andybalholm/brotli v1.1.1
+	github.com/andybalholm/brotli v1.2.0
 	github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5
 	github.com/aws/aws-sdk-go-v2 v1.41.0
 	github.com/aws/aws-sdk-go-v2/config v1.32.6
@@ -74,7 +74,7 @@ require (
 	github.com/traefik/yaegi v0.16.1
 	github.com/unrolled/render v1.0.2
 	github.com/unrolled/secure v1.0.9
-	github.com/valyala/fasthttp v1.58.0
+	github.com/valyala/fasthttp v1.67.0
 	github.com/vulcand/oxy/v2 v2.0.3
 	github.com/vulcand/predicate v1.2.0
 	github.com/yuin/gopher-lua v1.1.1
