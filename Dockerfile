@@ -2,10 +2,11 @@
 FROM alpine:3.23
 
 # Upgrade packages to fix stdlib and other vulnerabilities
-# Update to latest Alpine 3.23 packages including OpenSSL and other security fixes
+# Update to latest Alpine 3.23 packages including OpenSSL 3.5.5-r0 to fix CVEs
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories && \
     apk update && \
     apk add --no-cache --no-progress ca-certificates tzdata wget && \
+    apk add --no-cache openssl=3.5.5-r0 && \
     apk upgrade --no-cache
 
 ARG TARGETPLATFORM
